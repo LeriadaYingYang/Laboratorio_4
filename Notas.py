@@ -1,43 +1,74 @@
-# Arreglos paralelos con más alumnos y notas.
-nombres = ["Ana", "Luis", "Carlos", "Marta", "Pedro", "Lucía", "Jorge", "Sofía"]
-notas = [15.5, 18.0, 12.5, 19.5, 10.0, 16.5, 14.0, 17.0]
+# ============================================
+# PARTE: NOTAS - Listas paralelas
+# Curso: Fundamentos de Programación - Tema 4
+# ============================================
 
-# Mostrar lista
-print("Lista de estudiantes y sus notas (0-20):")
-for i in range(len(nombres)):
-    print(f"{i+1}. {nombres[i]} : {notas[i]:.1f}")
+# --- Listas paralelas ---
+nombres = ["Ana García", "Luis Torres", "María Pérez", "Carlos Díaz", "Sofía Ríos"]
+notas   = [18, 15, 20, 12, 17]
 
-# Búsqueda por nombre
-def buscar_nota(nombre_buscar):
-    for i in range(len(nombres)):
-        if nombres[i].lower() == nombre_buscar.lower():
-            return notas[i]
-    return None
+n = len(nombres)
 
-# Prueba de búsqueda
-nombre = input("\nIngrese nombre a buscar: ")
-nota = buscar_nota(nombre)
-if nota is not None:
-    print(f"La nota de {nombre} es {nota:.1f}")
-else:
-    print(f"{nombre} no encontrado")
+# --------------------------------------------
+# FUNCIÓN PARA MOSTRAR LISTA
+# --------------------------------------------
+def mostrar_lista(lista_nombres, lista_notas, titulo):
+    print("\n" + "=" * 50)
+    print(f"{titulo:^50}")
+    print("=" * 50)
+    
+    for i in range(len(lista_nombres)):
+        print(f"{lista_nombres[i]:<25} | Nota: {lista_notas[i]}")
 
-# Ordenar alfabéticamente los nombres
-pares = list(zip(nombres, notas))
-pares.sort(key=lambda x: x[0])
-nombres_ordenados, notas_ordenadas = zip(*pares)
+# --------------------------------------------
+# MOSTRAR LISTA ORIGINAL
+# --------------------------------------------
+mostrar_lista(nombres, notas, "LISTA DE ESTUDIANTES Y NOTAS")
 
-print("\nLista ordenada alfabéticamente:")
-for i, (n, nota) in enumerate(zip(nombres_ordenados, notas_ordenadas), 1):
-    print(f"{i}. {n} : {nota:.1f}")
+# --------------------------------------------
+# BÚSQUEDA POR NOMBRE
+# --------------------------------------------
+print("\n--- BÚSQUEDA POR NOMBRE ---")
+nombre_buscar = input("Ingrese el nombre del estudiante: ")
 
-# Ordenar por nota descendente (extra, demostración)
-pares_nota = list(zip(nombres, notas))
-pares_nota.sort(key=lambda x: x[1], reverse=True)
-print("\nRanking por nota (de mayor a menor):")
-for i, (n, nota) in enumerate(pares_nota, 1):
-    print(f"{i}. {n} : {nota:.1f}")
+encontrado = False
 
-# Promedio del grupo
-promedio = sum(notas) / len(notas)
-print(f"\nPromedio del grupo: {promedio:.2f}")
+for i in range(n):
+    if nombres[i].lower() == nombre_buscar.lower():
+        print(f"\nEstudiante encontrado: {nombres[i]}")
+        print(f"Su nota es: {notas[i]}")
+        encontrado = True
+        break
+
+if not encontrado:
+    print("\nEstudiante no encontrado.")
+
+# --------------------------------------------
+# ORDENAMIENTO POR NOTA (Mayor a menor)
+# --------------------------------------------
+nombres_ord = nombres.copy()
+notas_ord = notas.copy()
+
+for i in range(n - 1):
+    for j in range(n - 1 - i):
+        if notas_ord[j] < notas_ord[j + 1]:
+            notas_ord[j], notas_ord[j + 1] = notas_ord[j + 1], notas_ord[j]
+            nombres_ord[j], nombres_ord[j + 1] = nombres_ord[j + 1], nombres_ord[j]
+
+mostrar_lista(nombres_ord, notas_ord, "ORDENADOS POR NOTA (Mayor a menor)")
+
+# --------------------------------------------
+# ORDENAMIENTO ALFABÉTICO POR NOMBRE
+# --------------------------------------------
+nombres_alfa = nombres.copy()
+notas_alfa = notas.copy()
+
+for i in range(n - 1):
+    for j in range(n - 1 - i):
+        if nombres_alfa[j].lower() > nombres_alfa[j + 1].lower():
+            nombres_alfa[j], nombres_alfa[j + 1] = nombres_alfa[j + 1], nombres_alfa[j]
+            notas_alfa[j], notas_alfa[j + 1] = notas_alfa[j + 1], notas_alfa[j]
+
+mostrar_lista(nombres_alfa, notas_alfa, "ORDENADOS ALFABÉTICAMENTE")
+
+print("\n" + "=" * 50)
