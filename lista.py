@@ -3,7 +3,7 @@
 #Integrante: Elizabeth Huingo 
 #=================================
 
-# Funcion principal 
+# Función de listas paralelas
 def listas_paralelas():
 
     nombres = ["Maria", "Pedro", "Ana", "Luis"]
@@ -25,6 +25,27 @@ def listas_paralelas():
         print("Edad:", edades[posicion])
     else:
         print("El nombre no se encuentra en la lista.")
+
+# Función de cadenas
+def cadenas():
+    texto = "Bienvenido al laboratorio de listas paralelas"
+
+    # Subcadena
+    print("\nSubcadena:")
+    print(texto[0:10])  # Imprime "Bienvenido"
+
+    # Buscar palabra
+    print("\nBuscar palabra:")
+    print(texto.find("laboratorio"))  # Imprime la posición de la palabra "laboratorio"
+
+    # Reemplazar palabra
+    print("\nReemplazar palabra:")
+    print(texto.replace("listas", "cadenas"))  # Reemplaza "listas" por "cadenas"
+
+    # Split
+    print("\nSplit:")
+    print(texto.split(" "))  # Divide el texto en palabras y las muestra como una lista
+
     
 # Menu principal
 def main():
@@ -32,13 +53,16 @@ def main():
     while True:
         print("\n=========MENU=========")
         print("1. Listas Paralelas")
-        print("2. Salir")
+        print("2. Cadenas")
+        print("3. Salir")
 
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
             listas_paralelas()
         elif opcion == "2":
+            cadenas()
+        elif opcion == "3":
             print("Saliendo del programa...")
             break
         else:
