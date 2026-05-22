@@ -50,7 +50,7 @@ def cadenas():
 # Menu principal
 def main():
 
-    while True:
+    while True: 
         print("\n=========MENU=========")
         print("1. Listas Paralelas")
         print("2. Cadenas")
