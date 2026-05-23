@@ -1,6 +1,6 @@
 # ============================================
 # PARTE: NOTAS - Listas paralelas
-# Curso: Fundamentos de Programación - Tema 4
+# Curso: Fundamentos de Programación - Tema 4 - Pablo Diaz
 # ============================================
 
 # --- Listas paralelas ---

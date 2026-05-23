@@ -1,6 +1,6 @@
 #=====================================
 # PARTE: VALIDACIÓN - Métodos substring, split, replace, etc.
-# Curso: Fundamentos de Programación - Tema 4
+# Curso: Fundamentos de Programación - Tema 4 - Fabrizio mariano
 #=====================================
 
 # Función principal del programa
@@ -104,7 +104,3 @@ def main():
             break
         else:
             print("Opción inválida. Intente nuevamente.")
-
-#Ejecutar el programa
-if __name__ == "__main__":
-    main() 
