@@ -5,6 +5,39 @@
 
 # Función principal del programa
 def metodos():
+    print("\n=== CADENAS DE TEXTO ===\n")
+    texto = input("Ingresar una frase: ").strip()
+    # Se crea una subcadena
+    print("\n=== SUBCADENA ===")
+    subcadena = texto[0:5]   # Obtiene los primeros 5 caracteres
+    print("Subcadena [5 primeros caracteres]:", subcadena) # Convierte la subcadena a minúsculas
+
+    # Buscando una palabra del texto
+    print("\n=== BÚSQUEDA DE PALABRAS ===")
+    palabra = input("Buscar palabra: ")
+    posicion = texto.find(palabra) # find muestra la posición de la primera palabra encontrada
+    if posicion != -1:
+        print(f"La palabra ''{palabra}'' se encuentra en la posición {posicion}")
+    else:
+        print(f"La palabra ''{palabra}'' no existe")
+
+    # Reemplazando una palabra por otra
+    print("\n=== REEMPLAZAR PALABRAS ===")
+    palabra_vieja = input("Reemplazar palabra: ")
+    palabra_nueva = input("Nueva palabra: ")
+    nuevo_texto = texto.replace(palabra_vieja, palabra_nueva) # replace reemplaza todas las palabras viejas por otra nueva
+    print("Texto modificado:")
+    print(nuevo_texto)
+
+    #Separación de texto
+    print("\n=== SEPARAR TEXTO ===")
+    partes = texto.split(" ") # split divide el texto en partes usando el espacio como separador
+    print("Lista de palabras:")
+    for p in partes:
+        print(p) # Imprime cada palabra en una línea diferente
+
+
+    print("\n=== VALIDACIÓN DE PROMEDIOS ===\n")
     # Se pide la cantidad de estudiantes
     cantidad = int(input("N° de estudiantes: "))
 
