@@ -9,8 +9,8 @@ def metodos():
     texto = input("Ingresar una frase: ").strip()
     # Se crea una subcadena
     print("\n=== SUBCADENA ===")
-    subcadena = texto[0:5]   # Obtiene los primeros 5 caracteres
-    print("Subcadena [5 primeros caracteres]:", subcadena) # Convierte la subcadena a minúsculas
+    subcadena = texto[0:5]   # Muestra los primeros 5 caracteres
+    print("Subcadena [5 primeros caracteres]:", subcadena)
 
     # Buscando una palabra del texto
     print("\n=== BÚSQUEDA DE PALABRAS ===")
